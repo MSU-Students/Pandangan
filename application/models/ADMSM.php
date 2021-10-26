@@ -34,10 +34,16 @@ class ADMSM extends CI_Model {
 
       public function logOutM(){
        
-        // session_unset();
-        unset($_SESSION['usersID']);
-        session_destroy();
-        redirect(base_url()."ADMS/logInV");
+              try {
+   
+          unset($_SESSION['usersID']);
+          session_destroy();
+          redirect(base_url()."ADMS/logInV");
+      }
+      catch (exception $e) {
+          echo $e;
+      }
+     
                 
       }
      
